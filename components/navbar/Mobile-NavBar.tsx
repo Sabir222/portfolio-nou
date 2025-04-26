@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { ModeToggle } from "../ToggleTheme";
 import { AvatarFallback, Avatar, AvatarImage } from "../ui/avatar";
-
 const MobileNav = () => {
 	const [expanded, setExpanded] = useState(false);
 
@@ -63,8 +62,14 @@ const MobileNav = () => {
 					<div className="flex justify-between w-full items-center p-4">
 						<Link href="/" >
 							<Avatar className="w-8 h-8">
-								<AvatarImage src="https://github.com/sabir222.png" />
-								<AvatarFallback>SK</AvatarFallback>
+								<AvatarImage src="/profile-image2.png"
+									alt="Profile image"
+									width={500}
+									height={500}
+									className="object-cover"
+								/>
+								{/*<AvatarImage src="https://github.com/sabir222.png" />
+*/}								<AvatarFallback>SK</AvatarFallback>
 							</Avatar>
 						</Link>
 						<div className="h-10 w-10">
