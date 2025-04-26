@@ -10,19 +10,19 @@ const NavBar = () => {
 		style: "font-semibold"
 	},
 	{
-		path: "/Work",
+		path: "/work",
 		name: "Work",
 		style: ""
 	}, {
-		path: "/Blog",
+		path: "/blog",
 		name: "Blog",
 		style: ""
 	}, {
-		path: "/About",
+		path: "/about",
 		name: "About",
 		style: ""
 	}, {
-		path: "/Contact",
+		path: "/contact",
 		name: "Contact",
 		style: ""
 	},
