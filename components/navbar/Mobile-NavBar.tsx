@@ -59,10 +59,10 @@ const MobileNav = () => {
 						</div>
 					</div>
 				) : (
-					<div className="flex justify-between w-full items-center p-4">
+					<div className="flex justify-between w-full items-center p-2">
 						<Link href="/" >
 							<Avatar className="w-8 h-8">
-								<AvatarImage src="/profile-image2.png"
+								<AvatarImage src="/profile-image-3.png"
 									alt="Profile image"
 									width={500}
 									height={500}
