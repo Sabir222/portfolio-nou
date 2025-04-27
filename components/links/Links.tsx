@@ -7,7 +7,7 @@ const Links = () => {
 		{ name: "LinkedIn", link: "https://www.linkedin.com/in/skoutabi/" },
 		{ name: "Twitter", link: "https://x.com/sabirkoutabi" },
 	];
-	return <section className="flex flex-row justify-between items-center">
+	return <section className="flex  px-2 lg:px-0 flex-row justify-between items-center">
 		{links.map((link) => {
 			return <Link href={link.link} download={link.download} key={link.name} className="font-semibold" target="_blank">{link.name}</Link>
 		})}

@@ -6,7 +6,7 @@ const HeroSection = () => {
 			<div className="w-2/3 py-2 px-2 lg:px-0">
 				<p className="font-bold lg:text-[45px] text-2xl">Sabir Koutabi</p>
 				<p className="font-extralight lg:text-[25px] text-xl mb-4">full stack developer</p>
-				<p className="font-light"> I like building digital things that are simple, honest, and actually useful.</p>
+				<p className="font-light text-lg"> I like building digital things that are simple, honest, and actually useful.</p>
 			</div>
 			<div className="w-1/3 flex items-center justify-end">
 				<Avatar className="w-28 h-28">
