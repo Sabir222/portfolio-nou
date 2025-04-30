@@ -1,10 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
+//const observerOption = {
+//  threshold: 1,
+//  rootMargin: "-120px 0px 0px 0px",
+//};
 const observerOption = {
-  threshold: 1,
-  rootMargin: "-120px 0px 0px 0px",
+  rootMargin: "-80px 0px -60% 0px",
+  threshold: 0, // Keep threshold at 0
 };
-
 export const getIntersectionObserver = (
   setState: Dispatch<SetStateAction<string>>,
 ) => {
@@ -16,8 +19,8 @@ export const getIntersectionObserver = (
     const scrollY = window.scrollY;
     if (!(prevY && scrollY)) return;
 
-    direction = scrollY > lastScrollY ? "down" : "up"; // 이전의 스크롤 위치와 비교하기
-    lastScrollY = scrollY; // 현재의 스크롤 값을 저장
+    direction = scrollY > lastScrollY ? "down" : "up";
+    lastScrollY = scrollY;
   };
 
   const observer = new IntersectionObserver((entries) => {

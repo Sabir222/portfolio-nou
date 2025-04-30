@@ -20,8 +20,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   return (
     <div className="relative">
       {/* TOC positioned absolutely to the right of content */}
-      <div className="hidden lg:block absolute top-10 left-full ">
-        <div className="fixed top-52">
+      <div className="hidden lg:block absolute left-full  ml-10">
+        <div className="fixed top-36">
           <Toc />
         </div>
       </div>
