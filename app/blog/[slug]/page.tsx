@@ -3,7 +3,6 @@ import { allPosts } from 'contentlayer/generated'
 import Mdx from '@/components/mdx-components'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
-import Toc from '@/components/Toc'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
