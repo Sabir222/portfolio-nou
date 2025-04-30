@@ -3,6 +3,7 @@ import { allPosts } from 'contentlayer/generated'
 import Mdx from '@/components/mdx-components'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
+import Toc from '@/components/Toc'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -17,7 +18,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (
-    <article className="mx-auto max-w-xl py-8 px-2 md:px-0">
+    <>
       <div className="italic mb-10  flex flex-row space-x-2.5">
         <Link href="/" className='font-bold'>Home</Link>
         <p className="class">/</p>
@@ -35,7 +36,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
       </div>
       <Mdx code={post.body.code} />
       {/*<div className="[&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />*/}
-    </article>
+    </>
   )
 }
 

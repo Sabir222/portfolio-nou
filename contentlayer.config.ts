@@ -1,45 +1,34 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
-// Remove the old highlight import:
-// import highlight from "rehype-highlight";
 
-// Import the new syntax highlighter and its types
+// Import the syntax highlighter and its types
 import rehypePrettyCode from "rehype-pretty-code";
 import type { Options as PrettyCodeOptions } from "rehype-pretty-code";
 
-// Define options for rehype-pretty-code
-// See: https://rehype-pretty-code.netlify.app/
-const prettyCodeOptions: Partial<PrettyCodeOptions> = {
-  // Use the theme you want. Check Shiki's themes for options:
-  // https://shiki.style/themes
-  theme: "github-dark",
-  // Keep the background or use a custom background color? Default is false
-  // keepBackground: false,
+// Import the heading plugins
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import type { Options as AutolinkOptions } from "rehype-autolink-headings"; // Optional: if you want typed options
 
-  // Optional: Callback function to customize lines
-  // onVisitLine(node: any) {
-  //   // Prevent lines from collapsing in `display: grid` mode, and allow empty
-  //   // lines to be copy/pasted
-  //   if (node.children.length === 0) {
-  //     node.children = [{ type: 'text', value: ' ' }];
-  //   }
-  // },
-  // Optional: Callback function to customize highlighted lines
-  // onVisitHighlightedLine(node: any) {
-  //   node.properties.className.push('line--highlighted');
-  // },
-  // Optional: Callback function to customize highlighted characters
-  // onVisitHighlightedChars(node: any) {
-  //   node.properties.className = ['word--highlighted'];
-  // },
+// Define options for rehype-pretty-code
+const prettyCodeOptions: Partial<PrettyCodeOptions> = {
+  theme: "rose-pine",
+  // ... other pretty code options
+};
+
+// Optional: Define options for rehype-autolink-headings
+const autolinkOptions: Partial<AutolinkOptions> = {
+  properties: {
+    className: ["anchor-link"], // Add a class for styling the link
+    ariaLabel: "Link to section", // Accessibility
+    // Example: Use a '#' symbol as the link content
+    // content: { type: 'text', value: '#' }
+    // Example: Prepend the link instead of appending (default is prepend)
+    // behavior: 'prepend'
+  },
 };
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  // Be careful with `**/*.mdx` if your contentDirPath is 'posts'
-  // This will match ANY .mdx file inside 'posts' and its subdirectories.
-  // If you only want .mdx files directly in 'posts', use `*.mdx`
-  // If you want them in subdirectories like 'posts/topic/file.mdx',
-  // keep `**/*.mdx`.
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
   fields: {
@@ -49,9 +38,6 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      // This assumes all posts are directly under 'posts'.
-      // If you have 'posts/topic/slug.mdx', flattenedPath will be 'topic/slug'.
-      // The resulting URL will be '/blog/topic/slug'. Adjust if needed.
       resolve: (post) => `/blog/${post._raw.flattenedPath}`,
     },
   },
@@ -61,15 +47,20 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    // Remove the old highlight plugin
-    // rehypePlugins: [highlight],
-
-    // Add rehype-pretty-code with its options
-    rehypePlugins: [
-      // You can add other rehype plugins here if needed, before or after pretty-code
-      [rehypePrettyCode, prettyCodeOptions],
+    remarkPlugins: [
+      // Add any remark plugins here
     ],
-    // You can also add remark plugins here if needed:
-    // remarkPlugins: [],
+    rehypePlugins: [
+      // 1. Add IDs to headings (h1, h2, etc.)
+      rehypeSlug,
+
+      // 2. Add links back to the heading ID (must be after rehypeSlug)
+      [rehypeAutolinkHeadings, autolinkOptions], // Use options here if defined
+
+      // 3. Apply syntax highlighting
+      [rehypePrettyCode, prettyCodeOptions],
+
+      // Add other rehype plugins here if needed
+    ],
   },
 });
