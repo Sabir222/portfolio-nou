@@ -9,10 +9,14 @@ const Toc = () => {
 	const observerRef = useRef<IntersectionObserver | null>(null);
 	const isClickScrolling = useRef(false);
 	const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const highlightTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+	const highlightQueueRef = useRef<string[]>([]);
+	const isHighlightingRef = useRef(false);
 
 	useEffect(() => {
 		const cleanup = () => {
 			if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+			if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
 			if (observerRef.current) {
 				observerRef.current.disconnect();
 				observerRef.current = null;
@@ -51,10 +55,9 @@ const Toc = () => {
 				}
 			}
 
-			if (!isClickScrolling.current) {
+			if (!isClickScrolling.current && !isHighlightingRef.current) {
 				setCurrentId(prevId => prevId !== firstVisibleId ? firstVisibleId : prevId);
 			}
-
 		}, observerOptions);
 
 		validHeadingElements.forEach((header) => {
@@ -82,13 +85,43 @@ const Toc = () => {
 			clearTimeout(initialCheckTimeout);
 			cleanup();
 		};
-
 	}, [pathname]);
+
+	const processHighlightQueue = () => {
+		if (highlightQueueRef.current.length === 0) {
+			isHighlightingRef.current = false;
+			return;
+		}
+
+		const nextId = highlightQueueRef.current.shift();
+		if (nextId) {
+			setCurrentId(nextId);
+			highlightTimeoutRef.current = setTimeout(processHighlightQueue, 100);
+		}
+	};
 
 	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
 		e.preventDefault();
 		isClickScrolling.current = true;
-		setCurrentId(id);
+
+		// Clear any pending highlights
+		if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
+		highlightQueueRef.current = [];
+
+		// Find all headings between current and target
+		const currentIndex = headingEls.findIndex(h => h.id === currentId);
+		const targetIndex = headingEls.findIndex(h => h.id === id);
+
+		if (currentIndex === -1 || targetIndex === -1) {
+			setCurrentId(id);
+		} else {
+			const step = currentIndex < targetIndex ? 1 : -1;
+			for (let i = currentIndex + step; i !== targetIndex + step; i += step) {
+				highlightQueueRef.current.push(headingEls[i].id);
+			}
+			isHighlightingRef.current = true;
+			processHighlightQueue();
+		}
 
 		document.getElementById(id)?.scrollIntoView({
 			behavior: 'smooth',

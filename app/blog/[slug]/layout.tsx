@@ -11,6 +11,6 @@ export default function BlogSlugLayout({
   children: React.ReactNode;
 }) {
   return (
-    <article className="px-2 sm:px-0">{children}</article>
+    <article className="px-2 sm:px-0 mt-4">{children}</article>
   );
 }
