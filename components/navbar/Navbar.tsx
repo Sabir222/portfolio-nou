@@ -7,7 +7,7 @@ const NavBar = () => {
 	const paths = [{
 		path: "/",
 		name: "Home",
-		style: "font-semibold"
+		style: ""
 	},
 	{
 		path: "/work",
@@ -30,7 +30,7 @@ const NavBar = () => {
 
 	return (
 		<nav className="py-6 hidden lg:block">
-			<ul className="flex justify-between items-center flex-row">
+			<ul className="flex justify-between items-center flex-row font-thin">
 				<div className="flex items-center space-x-5">
 					{paths.map((path) => {
 						return < Link key={path.name} href={path.path} >
