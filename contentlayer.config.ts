@@ -34,6 +34,13 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: { type: "string", required: true },
     date: { type: "date", required: true },
+    tags: {
+      type: "list",
+      of: { type: "string" }, // Defines that the list contains strings
+      required: false, // Make tags optional (or true if every post MUST have tags)
+      default: [], // Optional: Provide a default empty array if no tags are specified
+    },
+    readtime: { type: "number", required: true },
   },
   computedFields: {
     url: {
