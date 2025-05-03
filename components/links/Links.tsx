@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BsTwitterX, BsGithub, BsLinkedin, BsFileEarmarkPdf } from "react-icons/bs";
 import React from "react";
 
-interface LinkItem {
+type LinkItem = {
 	icon: React.ReactNode;
 	link: string;
 	download?: string;
@@ -40,7 +40,7 @@ const Links = () => {
 	];
 
 	return (
-		<div className="flex items-center justify-center py-4">
+		<div className="flex items-center  py-4">
 			<div className="flex flex-wrap gap-6 items-center justify-center">
 				{links.map((link) => (
 					<Link
