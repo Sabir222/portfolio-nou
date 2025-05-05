@@ -39,7 +39,7 @@ export const NavigationMenu = () => {
 
 			// Base classes for all items
 			const baseClasses = clsx(
-				"flex h-12 items-center",
+				"flex h-12 items-center border",
 				"select-none overflow-hidden", // Important for text animation
 				"rounded-2xl",
 				"backdrop-blur-sm", // Default backdrop blur
@@ -70,7 +70,7 @@ export const NavigationMenu = () => {
 							{isActive && (
 								<motion.span
 									key={`${key}-title`} // Unique key for animation
-									className="inline-block font-semibold overflow-x-hidden whitespace-nowrap" // Essential styles
+									className="inline-block  font-semibold overflow-x-hidden whitespace-nowrap" // Essential styles
 									variants={textAnimation}
 									initial="hidden"
 									animate="visible"

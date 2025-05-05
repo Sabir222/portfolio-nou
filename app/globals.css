@@ -212,3 +212,40 @@
   color: transparent;
   background-position: 0; /* Show gradient on hover */
 }
+
+
+.gradient-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem; /* Assuming rem(64) -> 64px / 16px = 4rem */
+  z-index: 50; /* You NEED to replace 50 with your actual desired z-index value for overlays */
+
+  /* Performance/Rendering hint */
+  transform: translateZ(0);
+
+  /* Visual Effect */
+  opacity: 0.95;
+  -webkit-backdrop-filter: blur(6px); /* Safari */
+  backdrop-filter: blur(6px);
+
+  /* Gradient Mask */
+  /* Making the transparent stop explicit is good practice */
+  -webkit-mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 25%, transparent 100%);
+
+  /* Interaction */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  user-select: none;
+  pointer-events: none; /* Important: makes sure elements behind it are clickable */
+}
+
+/* Responsive Adjustment for Tablet and larger */
+/* Assuming 'tablet' starts at 768px. Adjust this value if your breakpoint is different */
+@media (min-width: 768px) {
+  .gradient-blur-overlay {
+    height: 6rem; /* Assuming rem(96) -> 96px / 16px = 6rem */
+  }
+}

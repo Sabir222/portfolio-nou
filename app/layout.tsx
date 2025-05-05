@@ -4,6 +4,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navbar/Navbar";
 import { NavigationMenu } from "@/components/navbar/exp-NavBar";
+import Blur from "@/components/blur";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -46,6 +47,7 @@ export default function RootLayout({
         >
           <div className="container mx-auto max-w-xl px-2 sm:px-0">
             <NavBar />
+            <Blur />
             {children}
           </div>
           <NavigationMenu />

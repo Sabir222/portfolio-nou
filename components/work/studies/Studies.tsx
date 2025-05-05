@@ -5,8 +5,8 @@ import StudiesCard from "./StudiesCard";
 const Studies = async () => {
 	const data = await getRepos();
 	return (
-		<section className="container my-44 ">
-			<h1 className="text-4xl font-medium my-8">studies</h1>
+		<section className="">
+			<h1 className="text-xl font-thin my-8">More projects including Alx africa projects. </h1>
 			<div className="grid grid-cols-1 space-y-6 ">
 				{data.map((repo: GithubDataProps) => {
 					return (
