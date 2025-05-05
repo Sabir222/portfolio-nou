@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navbar/Navbar";
-import MobileNav from "@/components/navbar/Mobile-NavBar";
+import { NavigationMenu } from "@/components/navbar/exp-NavBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,12 +45,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="container mx-auto max-w-xl">
-            <MobileNav />
             <NavBar />
             {children}
           </div>
-
-
+          <NavigationMenu />
         </ThemeProvider>
       </body>
     </html>
