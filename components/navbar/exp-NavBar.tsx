@@ -43,14 +43,13 @@ export const NavigationMenu = () => {
 				"flex h-12 items-center",
 				"select-none overflow-hidden", // Important for text animation
 				"rounded-2xl",
-				"border", // Default border
 				"backdrop-blur-sm", // Default backdrop blur
 				"transition-colors duration-300 ease-in-out", // For background color change
 				"px-3" // Padding for icon when text is hidden
 			);
 
 			// Classes specific to active state
-			const activeClasses = "dark:bg-gray-900/40 bg-[#F5EEDD]";
+			const activeClasses = "dark:bg-gray-100/10 bg-[#F4F4F5]";
 
 			// Classes specific to inactive state (optional, if different from base)
 			const inactiveClasses = "";

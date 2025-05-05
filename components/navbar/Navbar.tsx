@@ -1,44 +1,10 @@
 "use client";
 
 import { ModeToggle } from "../ToggleTheme";
-import Link from "next/link";
-
 const NavBar = () => {
-	const paths = [{
-		path: "/",
-		name: "Home",
-		style: ""
-	},
-	{
-		path: "/work",
-		name: "Work",
-		style: ""
-	}, {
-		path: "/blog",
-		name: "Blog",
-		style: ""
-	}, {
-		path: "/about",
-		name: "About",
-		style: ""
-	}, {
-		path: "/contact",
-		name: "Contact",
-		style: ""
-	},
-	]
-
 	return (
-		<nav className="py-6 hidden lg:block">
+		<nav className="py-6">
 			<ul className="flex justify-between items-center flex-row font-thin">
-				<div className="flex items-center space-x-5">
-					{paths.map((path) => {
-						return < Link key={path.name} href={path.path} >
-							<li className={path.style}>{path.name}</li>
-						</Link>
-					})}
-
-				</div>
 				<ModeToggle />
 			</ul>
 		</nav >

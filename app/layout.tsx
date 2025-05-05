@@ -44,7 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="container mx-auto max-w-xl">
+          <div className="container mx-auto max-w-xl px-2 sm:px-0">
             <NavBar />
             {children}
           </div>

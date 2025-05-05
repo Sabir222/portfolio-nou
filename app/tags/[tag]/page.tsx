@@ -32,10 +32,10 @@ export default function TagPage({ params }: TagPageProps) {
   const sortedTags = sortTagsByCount(tags);
 
   return (
-    <main className="">
+    <main className="min-h-screen">
       <TagsComponent tags={tags} sortedTags={sortedTags} currentTag={tag} />
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+      <section className="">
         {displayPosts?.length > 0 ? (
           <>
             {displayPosts.map((post) => (

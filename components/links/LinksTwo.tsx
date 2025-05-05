@@ -1,50 +1,63 @@
 import Link from "next/link";
 
+type LinkItem = {
+	link: string;
+	download?: string;
+	name: string;
+	isExternal: boolean;
+};
+
 const Links = () => {
+	const links: LinkItem[] = [
+		{
+			link: "/resume.pdf",
+			download: "your-name-resume.pdf",
+			name: "Resume",
+			isExternal: false,
+		},
+		{
+			link: "https://github.com/sabir222",
+			name: "Github",
+			isExternal: true,
+		},
+		{
+			link: "https://www.linkedin.com/in/skoutabi/",
+			name: "LinkedIn",
+			isExternal: true,
+		},
+		{
+			link: "https://x.com/sabirkoutabi",
+			name: "X",
+			isExternal: true,
+		},
+	];
+
 	return (
 		<div className="flex flex-col px-2 md:px-0 gap-1 mt-8">
-			<h3 className="mb-2 text-lg font-medium">
-				Links
-			</h3>
-			<ul className="flex flex-col  gap-1.5 list-disc list-inside">
-				<li className="text-base leading-relaxed break-keep">
-					<Link
-						className="gradient hover:underline"
-						href={"/"}
-					>
-						Resume
-					</Link>
-				</li>
-				<li className="text-base leading-relaxed break-keep">
-					<a
-						className="no-underline border-b transition-colors duration-300 ease-in-out"
-						href={`https://github.com/sabir222/`}
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						GitHub
-					</a>
-				</li>
-				<li className="text-base leading-relaxed break-keep">
-					<a
-						className="no-underline border-b transition-colors duration-300 ease-in-out"
-						href={`https://x.com/sabirkoutabi`}
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						X
-					</a>
-				</li>
-				<li className="text-base leading-relaxed break-keep">
-					<a
-						className="no-underline border-b transition-colors duration-300 ease-in-out"
-						href={`https://linkedin.com/in/skoutabi`}
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						LinkedIn
-					</a>
-				</li>
+			<h3 className="mb-2 text-lg font-thin">Links</h3>
+			<ul className="flex flex-col gap-1.5 list-disc list-inside">
+				{links.map(({ link, name, isExternal, download }) => (
+					<li key={link} className="text-base leading-relaxed break-keep">
+						{isExternal ? (
+							<a
+								href={link}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="gradient hover:underline font-thin"
+							>
+								{name}
+							</a>
+						) : (
+							<Link
+								href={link}
+								download={download}
+								className="gradient hover:underline"
+							>
+								{name}
+							</Link>
+						)}
+					</li>
+				))}
 			</ul>
 		</div>
 	);

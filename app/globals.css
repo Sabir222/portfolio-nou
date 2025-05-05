@@ -121,7 +121,7 @@
   }
 }
 
-/* === Gradient Effect === */
+/* === Gradient  === */
 :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]) {
   width: fit-content;
   color: var(--muted-foreground);
@@ -138,15 +138,16 @@
   background-clip: text;
   -webkit-background-clip: text;
   background-size: 200% 100%;
-  background-position: 100%;
+  background-position: 100%; /* Start with text color visible */
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]):hover {
   color: transparent;
-  background-position: 0;
+  background-position: 0; /* Show gradient on hover */
 }
 
+/* --- Always Gradient Rules (keep these) --- */
 .always-gradient {
   width: fit-content;
   border-bottom: 1px solid var(--border);
@@ -162,10 +163,9 @@
   background-clip: text;
   -webkit-background-clip: text;
   background-size: 200% 100%;
-  background-position: 0;
+  background-position: 0; /* Always show gradient */
   color: transparent;
 }
-
 
 .dark .always-gradient {
   width: fit-content;
@@ -176,12 +176,43 @@
     oklch(0.6 0.118 184.704) 0%,
     oklch(0.75 0.16 195) 25%,
     oklch(0.55 0.18 240) 50%,
-    var(--muted-foreground) 50%,
+    var(--muted-foreground) 50%, /* Assuming --muted-foreground is dark-mode adjusted */
     var(--muted-foreground) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
   background-size: 200% 100%;
-  background-position: 0;
+  background-position: 0; /* Always show gradient */
   color: transparent;
+}
+
+/* --- NEW: Dark Mode for the first rule --- */
+.dark :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]) {
+  /* Keep structural/behavioral styles same as light mode */
+  color: var(--muted-foreground); /* Use dark mode text color */
+  border-bottom-color: var(--border); /* Use dark mode border color */
+  
+  /* Use the OKLCH gradient from .dark .always-gradient */
+  background: linear-gradient(
+    90deg,
+    oklch(0.6 0.118 184.704) 0%,
+    oklch(0.75 0.16 195) 25%,
+    oklch(0.55 0.18 240) 50%,
+    var(--muted-foreground) 50%, 
+    var(--muted-foreground) 100%
+  );
+  
+  /* Ensure background properties are reset/maintained for dark mode */
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 200% 100%;
+  background-position: 100%; /* Start with text color visible */
+  
+  /* No need to repeat width, box-decoration-break, transition if inherited correctly */
+}
+
+/* Hover state remains the same logic, just needs the .dark prefix */
+.dark :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]):hover {
+  color: transparent;
+  background-position: 0; /* Show gradient on hover */
 }
