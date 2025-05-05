@@ -1,21 +1,20 @@
 'use client';
 
-import { HiHome, HiBriefcase, HiUser, HiMail } from 'react-icons/hi';
-import { GrArticle } from "react-icons/gr";
+import { FiHome, FiBriefcase, FiUser, FiMail, FiFileText } from 'react-icons/fi';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactElement, useMemo } from 'react';
 import { clsx } from 'clsx'; // Optional: for cleaner class joining
 
-const MENU = [
-	{ key: 'home', title: 'home', path: '/', icon: HiHome },
-	{ key: 'work', title: 'work', path: '/work', icon: HiBriefcase },
-	{ key: 'blog', title: 'blog', path: '/blog', icon: GrArticle },
-	{ key: 'about', title: 'about', path: '/about', icon: HiUser },
-	{ key: 'contact', title: 'contact', path: '/contact', icon: HiMail },
-];
 
+const MENU = [
+	{ key: 'home', title: 'home', path: '/', icon: FiHome },
+	{ key: 'work', title: 'work', path: '/work', icon: FiBriefcase },
+	{ key: 'blog', title: 'blog', path: '/blog', icon: FiFileText },
+	{ key: 'about', title: 'about', path: '/about', icon: FiUser },
+	{ key: 'contact', title: 'contact', path: '/contact', icon: FiMail },
+];
 // Simple animation for the text span
 const textAnimation = {
 	hidden: { width: 0, opacity: 0, marginLeft: 0 },

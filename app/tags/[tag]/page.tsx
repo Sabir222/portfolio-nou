@@ -3,7 +3,7 @@ import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
 import { slug } from "github-slugger";
 import { Metadata } from "next";
 import TagsComponent from "@/components/tag/TagsComponent";
-import PostCard from "@/components/PostCard";
+import SimplePostCard from "@/components/blog/PostCard";
 
 interface TagPageProps {
   params: {
@@ -39,7 +39,7 @@ export default function TagPage({ params }: TagPageProps) {
         {displayPosts?.length > 0 ? (
           <>
             {displayPosts.map((post) => (
-              <PostCard key={post.title} {...post} />
+              <SimplePostCard key={post.title} {...post} />
             ))}
           </>
         ) : (

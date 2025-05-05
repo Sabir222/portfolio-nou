@@ -125,7 +125,6 @@
 :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]) {
   width: fit-content;
   color: var(--muted-foreground);
-  border-bottom: 1px solid var(--border);
   box-decoration-break: clone;
   background: linear-gradient(
     90deg,
@@ -150,7 +149,6 @@
 /* --- Always Gradient Rules (keep these) --- */
 .always-gradient {
   width: fit-content;
-  border-bottom: 1px solid var(--border);
   box-decoration-break: clone;
   background: linear-gradient(
     90deg,
@@ -169,7 +167,6 @@
 
 .dark .always-gradient {
   width: fit-content;
-  border-bottom: 1px solid var(--border);
   box-decoration-break: clone;
   background: linear-gradient(
     90deg,
@@ -190,7 +187,6 @@
 .dark :is(.gradient, [data-article] a):not([rel="noreferrer noopener"]):not([target="_blank"]) {
   /* Keep structural/behavioral styles same as light mode */
   color: var(--muted-foreground); /* Use dark mode text color */
-  border-bottom-color: var(--border); /* Use dark mode border color */
   
   /* Use the OKLCH gradient from .dark .always-gradient */
   background: linear-gradient(

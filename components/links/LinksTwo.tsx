@@ -34,7 +34,7 @@ const Links = () => {
 
 	return (
 		<div className="flex flex-col px-2 md:px-0 gap-1 mt-8">
-			<h3 className="mb-2 text-lg font-thin">Links</h3>
+			<h3 className="mb-2 text-lg">Links</h3>
 			<ul className="flex flex-col gap-1.5 list-disc list-inside">
 				{links.map(({ link, name, isExternal, download }) => (
 					<li key={link} className="text-base leading-relaxed break-keep">
@@ -43,7 +43,7 @@ const Links = () => {
 								href={link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="gradient hover:underline font-thin"
+								className="gradient  font-thin"
 							>
 								{name}
 							</a>
@@ -51,7 +51,7 @@ const Links = () => {
 							<Link
 								href={link}
 								download={download}
-								className="gradient hover:underline"
+								className="gradient font-thin"
 							>
 								{name}
 							</Link>
