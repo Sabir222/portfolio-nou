@@ -1,3 +1,4 @@
+import { Section } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
@@ -35,11 +36,16 @@ const Projects = () => {
 	];
 
 	return (
-		<section className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-			{projects.map((project) => (
-				<ProjectCard key={project.title} {...project} />
-			))}
+		<section>
+
+			<h1 className="text-xl font-thin mb-8">Some of Freelance and personal projects.</h1>
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+				{projects.map((project) => (
+					<ProjectCard key={project.title} {...project} />
+				))}
+			</div>
 		</section>
+
 	);
 };
 
