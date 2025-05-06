@@ -26,7 +26,7 @@ const TimelineList = ({ asChild, className, children, ...props }: DivisionProps)
 				className={clsx(
 					'absolute left-6 top-0 bottom-0 w-[1.5px] -z-10',
 					'bg-repeat-y bg-[length:1.5px_8px] bg-[image:repeating-linear-gradient(to_bottom,theme(colors.border)_0,theme(colors.border)_4px,transparent_4px,transparent_8px)]',
-					'[mask-image:linear-gradient(to_bottom,black_90%,transparent_100%)]'
+					'[mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]'
 				)}
 				aria-hidden="true"
 			/>
