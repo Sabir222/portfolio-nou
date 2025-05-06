@@ -25,6 +25,22 @@ export default function About() {
         </p>
       </section>
 
+      <p className="mb-4">Info</p>
+      <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <div className="w-full border dark:bg-zinc-500/10 bg-[#F4F4F5] p-4 rounded-md  ">
+          <p className="text-sm">Phone</p>
+          <p className=" text-md font-thin">+212-762791354</p>
+        </div>
+        <div className="w-full border dark:bg-zinc-500/10 bg-[#F4F4F5] p-4 rounded-md  ">
+          <p className="text-sm">Email</p>
+          <p className=" text-md font-thin">sabirkoutabi@gmail.com</p>
+        </div>
+        <div className="w-full border dark:bg-zinc-500/10 bg-[#F4F4F5] p-4 rounded-md  ">
+          <p className="text-sm">Adress</p>
+          <p className=" text-md font-thin">Essaouira,Morocco</p>
+        </div>
+      </div>
+
       <p className="mb-4">Education</p>
       <TimelineList>
         <TimelineItem>
@@ -83,7 +99,7 @@ export default function About() {
           </TimelineContent>
         </TimelineItem>
 
-        <TimelineItem className="mb-20">
+        <TimelineItem className="">
           <TimelineDot />
           <TimelineContent>
             <TimelineHeading iconSrc="/cih.png">Financial Operations Coordinator – CIH Bank</TimelineHeading>
@@ -91,6 +107,30 @@ export default function About() {
               Managed financial transactions and regulatory compliance. Led initiatives to optimize internal processes and improve cross-team coordination.
             </TimelineDescription>
             <time className="text-xs text-muted-foreground mt-2 block">2019 – 2023</time>
+          </TimelineContent>
+        </TimelineItem>
+      </TimelineList>
+      <p className="mt-10 mb-4">Certificates</p>
+      <TimelineList>
+        <TimelineItem>
+          <TimelineDot className="" />
+          <TimelineContent>
+            <TimelineHeading iconSrc="/alx.jpg">Software Engineering Certificate – ALX Africa</TimelineHeading>
+            <TimelineDescription>
+              Completed a comprehensive 12-month program covering front-end and full-stack development. Covered C, Python, JavaScript, React, SQL, and more.
+            </TimelineDescription>
+            <time className="text-xs text-muted-foreground mt-2 block">2024</time>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem className="mb-20">
+          <TimelineDot />
+          <TimelineContent>
+            <TimelineHeading iconSrc="/aws.png">AWS Certified Cloud Practitioner (In Progress)</TimelineHeading>
+            <TimelineDescription>
+              Currently studying for the AWS Certified Cloud Practitioner exam to expand knowledge in cloud computing fundamentals and AWS services.
+            </TimelineDescription>
+            <time className="text-xs text-muted-foreground mt-2 block">2025 (Expected)</time>
           </TimelineContent>
         </TimelineItem>
       </TimelineList>
