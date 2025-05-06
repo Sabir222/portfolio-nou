@@ -1,4 +1,3 @@
-import { Section } from "lucide-react";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {

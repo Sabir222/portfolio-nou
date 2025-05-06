@@ -1,26 +1,38 @@
-import { format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
-import Mdx from '@/components/mdx-components'
-import Link from 'next/link'
-import { Separator } from '@/components/ui/separator'
-import Toc from '@/components/Toc'
+import { format, parseISO } from 'date-fns';
+import { allPosts } from 'contentlayer/generated';
+import Mdx from '@/components/mdx-components';
+import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
+import Toc from '@/components/Toc';
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
-
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
-  return { title: post.title }
+// Helper function to get post by slug
+async function getPost(slug: string) {
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  if (!post) throw new Error(`Post not found for slug: ${slug}`);
+  return post;
 }
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+// Generate static params for dynamic routes
+export const generateStaticParams = async () => {
+  return allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+};
+
+// Generate metadata for the page
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
+  return { title: post.title };
+};
+
+// Post layout component
+const PostLayout = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   return (
     <div className="relative">
       {/* TOC positioned absolutely to the right of content */}
-      <div className="hidden lg:block absolute left-full  ml-10">
+      <div className="hidden lg:block absolute left-full ml-10">
         <div className="fixed top-36">
           <Toc />
         </div>
@@ -48,7 +60,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         <Mdx code={post.body.code} />
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default PostLayout
+export default PostLayout;

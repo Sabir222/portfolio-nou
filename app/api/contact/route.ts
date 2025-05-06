@@ -6,8 +6,6 @@ export async function POST(request: Request) {
   const user = process.env.USER_GMAIL;
   const pass = process.env.APP_PASS;
 
-  const data = { email, fullName, message };
-
   const transporter = nodemailer.createTransport({
     // pool: true,
     host: "smtp.gmail.com",
@@ -20,7 +18,7 @@ export async function POST(request: Request) {
   });
 
   try {
-    const mail = await transporter.sendMail({
+    await transporter.sendMail({
       from: user,
       to: "sabirkoutabi@gmail.com , mrsabir4@gmail.com",
       replyTo: email,
@@ -49,7 +47,7 @@ export async function POST(request: Request) {
   }
   // sending a message back
   try {
-    const mail2 = await transporter.sendMail({
+    await transporter.sendMail({
       from: user,
       to: email,
       replyTo: email,

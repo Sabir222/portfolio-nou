@@ -1,8 +1,7 @@
 
 import Contact from "@/components/contact/Contact";
 
-type pageProps = undefiend;
-const Page: React.FC<pageProps> = ({ }) => {
+const Page = () => {
   return (
     <div className="min-h-screen">
       <Contact />
