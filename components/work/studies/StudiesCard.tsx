@@ -28,8 +28,7 @@ const StudiesCard: React.FC<StudiesCardProps> = ({
 			href={html_url || "#"}
 			target="_blank"
 			rel="noopener noreferrer"
-			className="block font-thin p-6 rounded-lg hover:bg-gray-100/70 transition ease-in-out duration-200 border dark:hover:bg-gray-600/10"
-		>
+			className="block font-thin  hover:bg-gray-100/70 transition ease-in-out duration-200  border dark:bg-zinc-500/10 bg-[#F4F4F5] p-4 rounded-md ">
 			<div className="flex flex-col space-y-4">
 
 				<div className="flex justify-between items-start gap-3">

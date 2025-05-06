@@ -5,7 +5,7 @@ import Link from "next/link";
 function SimplePostCard(post: Post) {
 	return (
 		<article className="mb-6 group">
-			<Link href={post.url} className="block">
+			<Link href={post.url} className="block  border dark:bg-zinc-500/10 bg-[#F4F4F5] p-4 rounded-md  ">
 				<div className="flex justify-between items-start mb-1">
 					<h3 className="gradient">
 						{post.title}
