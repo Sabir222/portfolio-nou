@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 
 interface FormProps {
 	//we cant do   type FormSchemaType = z.infer<typeof schema>;
@@ -46,6 +46,7 @@ const Contact = () => {
 			if (res.ok) {
 				setLoading(false);
 				toast.success("Email sent");
+				console.log("it passed");
 			}
 		} catch (err) {
 			toast.error("Message not sent please try again!");
@@ -58,6 +59,7 @@ const Contact = () => {
 	return (
 		<>
 			<div className="">
+				<Toaster position="bottom-left" />
 				<form
 					className="flex flex-col gap-2   rounded-xl ring-gray-300/60 dark:ring-gray-300/10"
 					onSubmit={handleSubmit(submitData)}
