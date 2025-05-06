@@ -59,7 +59,7 @@ const Contact = () => {
 	return (
 		<>
 			<div className="">
-				<Toaster position="bottom-left" />
+				<Toaster position="bottom-right" />
 				<form
 					className="flex flex-col gap-2   rounded-xl ring-gray-300/60 dark:ring-gray-300/10"
 					onSubmit={handleSubmit(submitData)}
