@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { unstable_ViewTransition as ViewTransition } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -47,12 +48,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="container mx-auto max-w-xl px-2 sm:px-0">
-            <NavBar />
-            <Blur />
-            {children}
-          </div>
-          <NavigationMenu />
+          <ViewTransition>
+            <div className="container mx-auto max-w-xl px-2 sm:px-0">
+              <NavBar />
+              <Blur />
+              {children}
+            </div>
+            <NavigationMenu />
+
+          </ViewTransition>
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />
