@@ -21,7 +21,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const post = await getPost(slug);
-  return { title: post.title };
+  return { title: post.title, description: post.description };
 };
 
 // Post layout component

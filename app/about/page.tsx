@@ -6,6 +6,26 @@ import {
   TimelineItem,
   TimelineList,
 } from "@/components/timeline/timeline";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  //openGraph: {
+  //  images: [
+  //    {
+  //      url: "https://www.sabirkoutabi.dev/api/og?title= About Sabir Koutabi",
+  //      width: 1200,
+  //      height: 630,
+  //    },
+  //  ],
+  //},
+  //twitter: {
+  //  card: "summary_large_image",
+  //  title: "My blog",
+  //  description: "About Sabir Koutabi",
+  //  images: [`https://www.sabirkoutabi.dev/api/og`],
+  //},
+  title: "About Sabir Koutabi",
+  description: "Sabir Koutabi's background,work and hobbies.",
+};
 
 export default function About() {
   return (
