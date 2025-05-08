@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   //  description: "Sabir Koutabi's Work",
   //  images: [`https://www.sabirkoutabi.dev/api/og`],
   //},
-  title: "Work",
-  description: "Sabir Koutabi's work",
+  title: "Projects",
+  description: "Sabir Koutabi's Projects",
   alternates: {
-    canonical: `https://sabirkoutabi.dev/work`,
+    canonical: `https://sabirkoutabi.me/projects`,
   },
 };
 export default function Work() {

@@ -10,7 +10,7 @@ export default async function sitemap() {
       lastModified: new Date(),
     },
     {
-      url: `${baseUrl}/work`,
+      url: `${baseUrl}/projects`,
       lastModified: new Date(),
     },
     {
