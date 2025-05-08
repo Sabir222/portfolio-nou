@@ -10,11 +10,11 @@ import { clsx } from 'clsx'; // Optional: for cleaner class joining
 
 
 const MENU = [
-	{ key: 'home', title: 'home', path: '/', icon: FiHome },
-	{ key: 'projects', title: 'projects', path: '/projects', icon: IoBuildOutline },
-	{ key: 'blog', title: 'blog', path: '/blog', icon: FiFileText },
-	{ key: 'about', title: 'about', path: '/about', icon: FiUser },
-	{ key: 'contact', title: 'contact', path: '/contact', icon: FiMail },
+	{ key: 'home', title: 'Home', path: '/', icon: FiHome },
+	{ key: 'projects', title: 'Projects', path: '/projects', icon: IoBuildOutline },
+	{ key: 'blog', title: 'Plog', path: '/blog', icon: FiFileText },
+	{ key: 'about', title: 'About', path: '/about', icon: FiUser },
+	{ key: 'contact', title: 'Contact', path: '/contact', icon: FiMail },
 ];
 // Simple animation for the text span
 const textAnimation = {
