@@ -12,7 +12,7 @@ import { clsx } from 'clsx'; // Optional: for cleaner class joining
 const MENU = [
 	{ key: 'home', title: 'Home', path: '/', icon: FiHome },
 	{ key: 'projects', title: 'Projects', path: '/projects', icon: IoBuildOutline },
-	{ key: 'blog', title: 'Plog', path: '/blog', icon: FiFileText },
+	{ key: 'blog', title: 'Blog', path: '/blog', icon: FiFileText },
 	{ key: 'about', title: 'About', path: '/about', icon: FiUser },
 	{ key: 'contact', title: 'Contact', path: '/contact', icon: FiMail },
 ];
