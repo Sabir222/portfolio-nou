@@ -1,6 +1,7 @@
 'use client';
 
-import { FiHome, FiUser, FiMail, FiFileText } from 'react-icons/fi';
+import { FiUser, FiMail, FiFileText } from 'react-icons/fi';
+import { HomeLogo } from '@/components/icon/homeLogo'
 import { IoBuildOutline } from "react-icons/io5";
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
@@ -10,7 +11,7 @@ import { clsx } from 'clsx'; // Optional: for cleaner class joining
 
 
 const MENU = [
-	{ key: 'home', title: 'Home', path: '/', icon: FiHome },
+	{ key: 'home', title: 'Home', path: '/', icon: HomeLogo },
 	{ key: 'projects', title: 'Projects', path: '/projects', icon: IoBuildOutline },
 	{ key: 'blog', title: 'Blog', path: '/blog', icon: FiFileText },
 	{ key: 'about', title: 'About', path: '/about', icon: FiUser },

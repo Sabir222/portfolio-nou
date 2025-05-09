@@ -32,7 +32,7 @@ export default function About() {
     <main className="min-h-screen">
       <section id="about" className="mb-6">
         <p className="text-md mb-2 font-thin">
-          Hi, I&apos;m <span className="font-semibold">Sabir Koutabi</span> — a Front-End Developer and Software Engineering.
+          Hi, I&apos;m <span className="font-semibold always-gradient">Sabir Koutabi</span> — a Front-End Developer and Software Engineering.
         </p>
         <p className="text-md mb-2 font-thin">
           I transitioned from a career in finance, where I honed my analytical and problem-solving skills, to pursue my passion for tech.
@@ -77,7 +77,7 @@ export default function About() {
         <TimelineItem>
           <TimelineDot />
           <TimelineContent>
-            <TimelineHeading iconSrc="/univercity.png">Bachelor&apos;s Degree in Finance and Banking</TimelineHeading>
+            <TimelineHeading iconSrc="/univercity.jpeg">Bachelor&apos;s Degree in Finance and Banking</TimelineHeading>
             <TimelineDescription>
               Earned at the Higher School of Technology, Cadi Ayyad University. Focused on finance, management accounting, applied math, and tech in financial decision-making.
             </TimelineDescription>
@@ -101,7 +101,7 @@ export default function About() {
         <TimelineItem>
           <TimelineDot className="bg-primary" />
           <TimelineContent>
-            <TimelineHeading>Web Developer (Freelance)</TimelineHeading>
+            <TimelineHeading iconSrc="logo.svg">Web Developer (Freelance)</TimelineHeading>
             <TimelineDescription>
               Independent contractor available for full-stack web development projects.</TimelineDescription>
             <time className="text-xs text-muted-foreground mt-2 block">2023 – Present</time>

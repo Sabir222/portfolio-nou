@@ -35,7 +35,7 @@ const Links = () => {
 
 	return (
 		<div className="flex flex-col gap-1 mt-8">
-			<h3 className="mb-2 text-lg font-thin "> link</h3>
+			<h3 className="mb-2 text-lg font-thin select-none cursor-default"> link</h3>
 			<ul className="flex flex-col gap-1.5 list-disc list-inside">
 				{links.map(({ link, name, isExternal, download }) => (
 					<li key={link} className="text-base leading-relaxed break-keep">

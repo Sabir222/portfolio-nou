@@ -9,7 +9,7 @@ const RecentBlog = () => {
 
 	return (
 		<div className="flex flex-col gap-1 mt-8">
-			<h3 className="mb-2 text-lg">Recent posts</h3>
+			<h3 className="mb-2 text-lg select-none">Recent posts</h3>
 			<ul className="flex flex-col gap-1.5 list-disc list-inside">
 				{posts.slice(0, 3).map((post) => (
 					<li key={post._id} className="text-base leading-relaxed break-keep">
