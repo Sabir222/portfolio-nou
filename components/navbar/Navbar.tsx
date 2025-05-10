@@ -1,6 +1,6 @@
 "use client";
 
-import { Logo } from "../icon/logo";
+import { Logo } from "../icon/logo2";
 import { ModeToggle } from "../ToggleTheme";
 const NavBar = () => {
 	return (
